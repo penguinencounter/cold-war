@@ -1,4 +1,5 @@
 @use "theme";
+
 @mixin top-nav-target {
 
     position: relative;
@@ -21,8 +22,13 @@
         --color-primary: #{theme.$current};
         --color-ambient: #{theme.$current-ambient};
     }
-    &:hover, &:focus, &:active {
-        &>span, &>.label {
+
+    &:hover,
+    &:focus,
+    &:active {
+
+        &>span,
+        &>.label {
             & .menu-flipper {
                 transform: rotateX(180deg);
             }
@@ -30,8 +36,15 @@
 
         --color-primary: #{theme.$selected};
         --color-ambient: #{theme.$selected-ambient};
+
+        &.--use-alternate {
+            --color-primary: #{theme.$sub-selected};
+            --color-ambient: #{theme.$sub-selected-ambient};
+        }
     }
-    &>span, &>.label {
+
+    &>span,
+    &>.label {
         & .menu-flipper {
             background-image: url("expand_more_icon_24px.svg");
             transform: rotateX(0deg);
@@ -53,6 +66,7 @@
         box-shadow: 0 0 10px var(--color-ambient);
     }
 }
+
 @mixin sub-nav-target {
     @include top-nav-target;
     padding: 10px 10px;
@@ -68,6 +82,7 @@
         box-shadow: 0 0 10px var(--color-ambient);
     }
 }
+
 @mixin menu-contents {
     position: absolute;
     top: calc(100% + 4px);
@@ -79,6 +94,7 @@
     z-index: 110;
     padding-left: 4px;
 }
+
 @mixin menu-contents-inner {
     position: relative;
     min-width: 100%;
@@ -87,6 +103,7 @@
     flex-flow: column nowrap;
     padding-left: 4px;
 }
+
 @mixin navbar-layout-rules {
     display: flex;
     gap: 10px;
