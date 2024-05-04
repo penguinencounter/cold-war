@@ -1,0 +1,8 @@
+@use "lib";
+.mobile-only {
+    display: none !important;
+}
+.menu-list--desktop {
+    @include lib.navbar-layout-rules;
+    height: 100%;
+}

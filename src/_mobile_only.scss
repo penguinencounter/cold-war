@@ -1,0 +1,31 @@
+@use "lib";
+@use "theme";
+.desktop-only {
+    display: none !important;
+}
+
+.nav-target--mobile {
+    @include lib.top-nav-target;
+}
+.menu-contents>.nav-target--mobile {
+    @include lib.sub-nav-target;
+}
+#mainmenu-inner {
+    overflow-y: scroll;
+    max-height: calc(100vh - theme.$nav-height);
+}
+
+.nav-target, .nav-target--mobile {
+    & .menu-contents--mobile {
+        display: none;
+    }
+    &:hover > .menu-contents--mobile {
+        @include lib.menu-contents;
+        & .menu-contents, & .menu-contents--mobile {
+            @include lib.menu-contents-inner;
+        }
+    }
+    .menu-contents--mobile>& {
+        @include lib.sub-nav-target;
+    }
+}

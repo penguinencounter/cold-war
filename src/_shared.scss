@@ -1,0 +1,170 @@
+@use "theme";
+@use "lib";
+@import "icons";
+
+@font-face {
+    src: url("Montserrat.ttf") format('truetype');
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 100 900;
+}
+
+@font-face {
+    src: url("MontserratItalic.ttf") format('truetype');
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 100 900;
+}
+
+body {
+    background: #202020;
+    color: #eeeeee;
+    font-family: 'Montserrat';
+}
+
+// Fallbacks
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+main>.text {
+    padding: 0 theme.$text-padding;
+    margin: theme.$text-separation 0;
+}
+
+html,
+body {
+    margin: 0;
+}
+
+// Default Styles
+:where(:not(.-not-box)) {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+h2,
+h3 {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2.33rem;
+}
+
+h3 {
+    font-size: 1.66rem;
+}
+
+.flexfill {
+    flex: 1 0;
+    width: 0;
+}
+
+// Layout
+.hero {
+    height: min(100vmin, 33vh);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    padding: theme.$hero-padding;
+    --img: none;
+    background: theme.$readability-overlay, var(--img) center/cover;
+}
+
+.hero>.icon-btn {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #00000040;
+}
+
+.hero>.icon-btn+.icon-btn {
+    margin-right: 5px;
+}
+
+.hero>h1 {
+    font-size: 4rem;
+}
+
+.hero-attr {
+    padding: 5px + theme.$hero-attr-capsize + 2px theme.$hero-padding 5px;
+    position: relative;
+    background: theme.$hero-attr-bg;
+    color: theme.$hero-attr-color;
+    font-size: 0.8rem;
+    transition: color ease-in-out 0.2s;
+}
+
+.hero-attr:hover {
+    color: theme.$selected;
+}
+
+.hero-attr::before {
+    position: absolute;
+    top: 5px;
+    content: "BANNER IMAGE CREDIT";
+    font-size: theme.$hero-attr-capsize;
+}
+
+// Top navigation
+
+nav#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    width: max-content;
+
+    background-color: #00000080;
+    /* not Safari */
+    backdrop-filter: blur(10px);
+    /* Safari */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 4px solid theme.$stripe-fallback;
+    height: theme.$nav-height;
+    box-sizing: border-box;
+
+    @include lib.navbar-layout-rules;
+    overflow-x: visible;
+    overflow-y: visible;
+    z-index: 100;
+
+    padding: 0 theme.$text-padding;
+}
+
+.nav-target {
+    @include lib.top-nav-target;
+}
+
+.menu-contents>.nav-target {
+    @include lib.sub-nav-target;
+}
+
+// EXPERIMENTAL
+.nav-target .menu-contents {
+    display: none;
+}
+
+.nav-target:hover,
+.nav-target:focus,
+.nav-target:active {
+    & .menu-contents {
+        @include lib.menu_contents;
+        & .menu-contents {
+            @include lib.menu-contents-inner
+        }
+    }
+}
+
+main {
+    margin-top: theme.$nav-height;
+}

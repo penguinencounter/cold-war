@@ -1,0 +1,28 @@
+@function stripe-style($base, $highlight) {
+    @return linear-gradient(
+        to top,
+        $base,
+        $base 2px, $highlight 0,
+        $highlight
+    );
+}
+
+$nav-height: 48px;
+$hero-padding: 20px;
+$text-padding: 20px;
+// used in margin, applied twice between two text
+$text-separation: 10px;
+
+$hero-attr-bg: #101010;
+$hero-attr-color: #606060;
+$hero-attr-capsize: 8px;
+
+$selected: #ffde68;
+$selected-ambient: #ffedad;
+$available: #aeaeae;
+$available-ambient: #5c5c5c;
+$current: #84ff68;
+$current-ambient: #d0ffad;
+$readability-overlay: linear-gradient(to top, #000000b0 0%, #000000a0 calc($hero-padding + 5rem), transparent);
+
+$stripe-fallback: #101010;
