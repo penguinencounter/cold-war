@@ -2,111 +2,116 @@
 
 @mixin top-nav-target {
 
-    position: relative;
-    display: flex;
-    flex-flow: column nowrap;
-    --color-primary: #{theme.$available};
-    --color-ambient: #{theme.$available-ambient};
-    color: var(--color-primary);
-    font-size: 1.2rem;
-    text-decoration: none;
-    justify-content: flex-end;
-    padding: 0 10px;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  --color-primary: #{theme.$available};
+  --color-ambient: #{theme.$available-ambient};
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  text-decoration: none;
+  justify-content: flex-end;
+  padding: 0 10px;
 
-    &.--title {
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
+  &.--title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
 
-    &[data-current] {
-        --color-primary: #{theme.$current};
-        --color-ambient: #{theme.$current-ambient};
-    }
+  &[data-current] {
+    --color-primary: #{theme.$current};
+    --color-ambient: #{theme.$current-ambient};
+  }
 
-    &:hover,
-    &:focus,
-    &:active {
+  &[data-current-inside] {
+    --color-primary: #{theme.$current-inside};
+    --color-ambient: #{theme.$current-inside-ambient};
+  }
 
-        &>span,
-        &>.label {
-            & .menu-flipper {
-                transform: rotateX(180deg);
-            }
-        }
-
-        --color-primary: #{theme.$selected};
-        --color-ambient: #{theme.$selected-ambient};
-
-        &.--use-alternate {
-            --color-primary: #{theme.$sub-selected};
-            --color-ambient: #{theme.$sub-selected-ambient};
-        }
-    }
+  &:hover,
+  &:focus,
+  &:active {
 
     &>span,
     &>.label {
-        & .menu-flipper {
-            background-image: url("expand_more_icon_24px.svg");
-            transform: rotateX(0deg);
-            transition: transform ease-in-out 0.2s;
-        }
-
-        width: max-content;
-        padding: 0 0 5px 0;
+      & .menu-flipper {
+        transform: rotateX(180deg);
+      }
     }
 
-    &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -4px;
-        height: 4px;
-        background-color: var(--color-primary);
-        box-shadow: 0 0 10px var(--color-ambient);
+    --color-primary: #{theme.$selected};
+    --color-ambient: #{theme.$selected-ambient};
+
+    &.--use-alternate {
+      --color-primary: #{theme.$sub-selected};
+      --color-ambient: #{theme.$sub-selected-ambient};
     }
+  }
+
+  &>span,
+  &>.label {
+    & .menu-flipper {
+      background-image: url("expand_more_icon_24px.svg");
+      transform: rotateX(0deg);
+      transition: transform ease-in-out 0.2s;
+    }
+
+    width: max-content;
+    padding: 0 0 5px 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 4px;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-ambient);
+  }
 }
 
 @mixin sub-nav-target {
-    @include top-nav-target;
-    padding: 10px 10px;
+  @include top-nav-target;
+  padding: 10px 10px;
 
-    &::after {
-        top: 0;
-        bottom: 0;
-        left: -4px;
-        width: 4px;
-        right: auto;
-        height: auto;
-        background-color: var(--color-primary);
-        box-shadow: 0 0 10px var(--color-ambient);
-    }
+  &::after {
+    top: 0;
+    bottom: 0;
+    left: -4px;
+    width: 4px;
+    right: auto;
+    height: auto;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-ambient);
+  }
 }
 
 @mixin menu-contents {
-    position: absolute;
-    top: calc(100% + 4px);
-    min-width: 100%;
-    background: #101010;
-    display: flex;
-    flex-flow: column nowrap;
-    right: 0;
-    z-index: 110;
-    padding-left: 4px;
+  position: absolute;
+  top: calc(100% + 4px);
+  min-width: 100%;
+  background: #101010;
+  display: flex;
+  flex-flow: column nowrap;
+  right: 0;
+  z-index: 110;
+  padding-left: 4px;
 }
 
 @mixin menu-contents-inner {
-    position: relative;
-    min-width: 100%;
-    background: #101010;
-    display: flex;
-    flex-flow: column nowrap;
-    padding-left: 4px;
+  position: relative;
+  min-width: 100%;
+  background: #101010;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 4px;
 }
 
 @mixin navbar-layout-rules {
-    display: flex;
-    gap: 10px;
-    flex-flow: row nowrap;
-    align-items: stretch;
+  display: flex;
+  gap: 10px;
+  flex-flow: row nowrap;
+  align-items: stretch;
 }

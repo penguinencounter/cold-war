@@ -1,20 +1,23 @@
 .icon {
-    width: 24px;
-    height: 24px;
-    filter: #{"invert()"};
-    box-sizing: content-box;
+  width: 24px;
+  height: 24px;
+  filter: #{"invert()"};
+  box-sizing: content-box;
 }
+
 span.icon {
-    display: inline-block;
-    vertical-align: text-bottom;
+  display: inline-block;
+  vertical-align: text-bottom;
 }
+
 .icon.icon-light {
-    filter: none;
+  filter: none;
 }
 
 $icons: attribution, file_open, expand_more, expand_less;
+
 @each $icon in $icons {
-    .icon.--#{$icon} {
-        background-image: url("#{$icon}_icon_24px.svg")
-    }
+  .icon.--#{$icon} {
+    background-image: url("#{$icon}_icon_24px.svg")
+  }
 }

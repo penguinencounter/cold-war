@@ -2,9 +2,9 @@ $desktop-width: 920px;
 
 @import "shared";
 @media only screen and (min-width: $desktop-width) {
-    @import "desktop_only";
+  @import "desktop_only";
 }
 
 @media only screen and (max-width: ($desktop-width - 1)) {
-    @import "mobile_only";
+  @import "mobile_only";
 }
