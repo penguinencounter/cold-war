@@ -42,6 +42,11 @@ footer {
   padding: theme.$text-separation theme.$text-padding;
   background-color: #303030;
 }
+.icon-btn {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #00000080;
+}
 
 // Image + text. Layout varies by @media.
 main>.image-text {
@@ -50,19 +55,38 @@ main>.image-text {
   width: theme.$readable-width * 1.5;
   margin: 0 auto;
 
-  // !! OVERRIDES in mobile_only !!
-  grid-template-areas: "image text";
+  grid-template-areas: "image text" "image attr";
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr max-content;
 
   &.--flipped {
     grid-template-columns: 2fr 1fr;
-    grid-template-areas: "text image";
+    grid-template-areas: "text image" "attr image";
   }
 }
 
 .image-text>.text {
   grid-area: text;
   width: 100%;
+}
+.image-text>.image-attr {
+  grid-area: attr;
+  width: 100%;
+  padding: 5px + theme.$hero-attr-capsize + 2px theme.$hero-padding 5px;
+  position: relative;
+  background: theme.$hero-attr-bg;
+  color: theme.$hero-attr-color;
+  font-size: 0.8rem;
+  transition: color ease-in-out 0.2s;
+}
+.image-text>.image-attr::before {
+  position: absolute;
+  top: 5px;
+  content: "IMAGE CREDIT";
+  font-size: theme.$hero-attr-capsize;
+}
+.image-text>.image-attr:hover {
+  color: theme.$selected;
 }
 
 .image-text>.-image {
@@ -74,6 +98,12 @@ main>.image-text {
   background-size: cover;
   background-position: center;
   aspect-ratio: var(--min-aspect);
+  position: relative;
+}
+.image-text>.-image>.icon-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 html,
@@ -121,11 +151,7 @@ h3 {
   background: theme.$readability-overlay, var(--img) center/cover;
 }
 
-.hero>.icon-btn {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #00000040;
-}
+
 
 .hero>.icon-btn+.icon-btn {
   margin-right: 5px;

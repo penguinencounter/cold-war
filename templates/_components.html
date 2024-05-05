@@ -1,0 +1,12 @@
+{% macro sbs_img(url, aspect, attrib=none) %}
+{% if attrib != none %}
+<div class="image-attr">
+{{ attrib }}
+</div>
+{% endif %}
+<div class="-image" role="img" style="--img: url('{{url}}'); --min-aspect: {{aspect}};">
+  <a href="{{url}}" class="icon-btn" title="Go to image">
+  <div class="icon --file_open"></div>
+  </a>
+</div>
+{% endmacro %}
