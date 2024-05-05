@@ -47,6 +47,7 @@ for name in listdir(inbound):
         # look upwards for more navitems
         while (upwards := upwards.parent).name != 'nav':
             if upwards.attrs.get('data-is-nav-target') is not None:
+                print(f'[info] found parent navitem: {upwards.attrs}')
                 upwards.attrs['data-current-inside'] = ''
     else:
         print(f'[warn] wrong # of navitem matched: {len(this_navitem)}')
