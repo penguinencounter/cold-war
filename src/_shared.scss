@@ -111,7 +111,8 @@ h3 {
 
 // Layout
 .hero {
-  height: min(100vmin, 33vh);
+  min-height: min(100vmin, 33vh);
+  height: max-content;
   display: flex;
   flex-flow: row nowrap;
   align-items: flex-end;

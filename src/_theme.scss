@@ -30,6 +30,6 @@ $current: #84ff68;
 $current-ambient: #d0ffad;
 $current-inside: #63c04f;
 $current-inside-ambient: #a9d686;
-$readability-overlay: linear-gradient(to top, #000000b0 0%, #000000a0 calc($hero-padding + 5rem), transparent);
+$readability-overlay: linear-gradient(to top, #000000b0 0%, #000000a0 calc($hero-padding + 5rem), #00000080);
 
 $stripe-fallback: #101010;
