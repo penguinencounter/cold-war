@@ -14,6 +14,10 @@ const stylesHandler = {
 
 
 const config = {
+    cache: {
+        type: 'filesystem',
+        maxAge: 86400000 // one day
+    },
     entry: {
         index: ['./src/index.ts', './src/index.scss'],
     },

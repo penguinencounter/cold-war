@@ -18,6 +18,9 @@ $text-align-offset: calc(50vw - (theme.$readable-width / 2) + theme.$hero-paddin
 .hero {
   padding-left: $text-align-offset;
 }
+.hero > h1 {
+  max-width: theme.$readable-width;
+}
 .hero-attr {
   padding-left: $text-align-offset;
 } 

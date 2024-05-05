@@ -1,9 +1,15 @@
 from collections import defaultdict
-from os import listdir, makedirs
+from os import environ, listdir, makedirs
 from pathlib import Path
 from typing import NamedTuple
 from bs4 import BeautifulSoup, Tag
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from rich.console import Console
+
+term = Console()
+if environ.get('GITHUB_ACTIONS', None) == 'true':
+    term = Console(force_terminal=True, force_interactive=False)
+term.print("[bold green]Merging / generating HTML...[/bold green]")
 
 
 outbound = Path("htmlgen")
@@ -33,7 +39,7 @@ def strip_meta_attrs(tag: Tag):
 
 for name in listdir(inbound):
     if name.startswith('_') or not name.endswith('.html'):
-        print('[info] skipping', name)
+        term.print(rf'[blue]\[skip] {name}[/]')
         continue
     template = jenv.get_template(name)
     htmlstr = template.render()
@@ -47,13 +53,13 @@ for name in listdir(inbound):
         # look upwards for more navitems
         while (upwards := upwards.parent).name != 'nav':
             if upwards.attrs.get('data-is-nav-target') is not None:
-                print(f'[info] found parent navitem: {upwards.attrs}')
+                term.print(rf'[bright_black]\[debg] found parent navitem: {upwards.attrs}[/]')
                 upwards.attrs['data-current-inside'] = ''
     else:
-        print(f'[warn] wrong # of navitem matched: {len(this_navitem)}')
+        term.print(rf'[bright_yellow]\[warn] wrong number of navitem matched: {len(this_navitem)}[/]')
     
     stripped = strip_meta_attrs(soup)
-    print(f'[info] stripped meta attrs: {", ".join(f"{k} x{v}" for k, v in stripped.items())}')
+    term.print(rf'[bright_green]\[ ok ] {name} done;[/] [bright_blue]stripped meta attrs: {", ".join(f"{k} x{v}" for k, v in stripped.items())}[/]')
 
     # dump the HTML
     with open(outbound / name, 'w') as f:
