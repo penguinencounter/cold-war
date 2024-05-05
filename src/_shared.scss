@@ -42,8 +42,9 @@ footer {
   padding: theme.$text-separation theme.$text-padding;
   background-color: #303030;
 }
+
 // Image + text. Layout varies by @media.
-main > .image-text {
+main>.image-text {
   display: grid;
   max-width: max(calc(100vw - 60px), min(100vw, calc(theme.$readable-width + 250px)));
   width: theme.$readable-width * 1.5;
@@ -52,16 +53,19 @@ main > .image-text {
   // !! OVERRIDES in mobile_only !!
   grid-template-areas: "image text";
   grid-template-columns: 1fr 2fr;
+
   &.--flipped {
     grid-template-columns: 2fr 1fr;
     grid-template-areas: "text image";
   }
 }
-.image-text > .text {
+
+.image-text>.text {
   grid-area: text;
   width: 100%;
 }
-.image-text > .-image {
+
+.image-text>.-image {
   grid-area: image;
   align-self: stretch;
   --img: none;
@@ -128,6 +132,11 @@ h3 {
 
 .hero>h1 {
   font-size: 4rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  // Prevents overflow due to min-width existing (and not in the inspector?) and causing the flexbox to overflow
+  // thanks Firefox flexbox inspector, but where did it come from?
+  min-width: 0;
 }
 
 .hero-attr {
@@ -211,6 +220,7 @@ nav#main-nav {
   background: var(--background-color);
   border: 2px solid var(--border-color);
   position: relative;
+
   &::after {
     bottom: 2px;
     right: 4px;
@@ -220,10 +230,12 @@ nav#main-nav {
     color: var(--border-color);
   }
 }
+
 .fixme {
   @extend .notice;
   --background-color: #49371f;
   --border-color: #ffb74b;
+
   &::after {
     content: "FIXME";
   }
