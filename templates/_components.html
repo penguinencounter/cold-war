@@ -1,4 +1,7 @@
-{% macro sbs_img(url, aspect, attrib=none) %}
+{% macro sbs_img(url, attrib=none, aspect=none) %}
+{% if aspect == none %}
+{% set aspect = get_image_aspect(url) %}
+{% endif %}
 {% if attrib != none %}
 <div class="image-attr">
 {{ attrib }}
