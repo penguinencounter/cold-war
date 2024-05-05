@@ -7,7 +7,7 @@ from rich.console import Console
 
 term = Console()
 if environ.get('GITHUB_ACTIONS', None) == 'true':
-    term = Console(force_terminal=True, force_interactive=False)
+    term = Console(force_terminal=True, force_interactive=False, width=180)
 term.print("[bold green]Bundling files...[/bold green]")
 
 
