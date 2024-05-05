@@ -1,6 +1,9 @@
 from collections import defaultdict
+from glob import glob
 from os import environ, listdir, makedirs
+from os.path import exists, isdir
 from pathlib import Path
+from shutil import copy, copytree, rmtree
 from typing import NamedTuple
 from bs4 import BeautifulSoup, Tag
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -64,3 +67,32 @@ for name in listdir(inbound):
     # dump the HTML
     with open(outbound / name, 'w') as f:
         f.write(str(soup))
+
+term.print("[bold green]Bundling files...[/bold green]")
+
+sources = [
+    *glob('htmlgen/*.html'),
+    'dist'
+]
+destination = Path("deploy")
+rmtree(destination, ignore_errors=True)
+makedirs(destination, exist_ok=True)
+
+files = 0
+dirs = 0
+
+for source in sources:
+    if not exists(source):
+        term.print(rf"[bright_yellow]\[warn] {source} does not exist, skipping[/]")
+        continue
+    if isdir(source):
+        dirs += 1 
+        full_dest = destination / source
+        copytree(source, full_dest)
+    else:
+        files += 1
+        source_path = Path(source)
+        full_dest = destination / source_path.name
+        copy(source, full_dest)
+
+term.print(rf"[bright_green]\[ ok ] {files} files and {dirs} directories bundled[/]")

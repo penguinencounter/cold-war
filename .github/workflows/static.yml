@@ -50,10 +50,8 @@ jobs:
         shell: bash
       - name: Build CSS + JS (Webpack)
         run: npm run build:prod
-      - name: Build HTML (Jinja + bs4)
+      - name: Merge HTML and collect outputs
         run: python generate.py
-      - name: Collect and organize outputs
-        run: python collate.py
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
