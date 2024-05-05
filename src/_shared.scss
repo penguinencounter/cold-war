@@ -32,9 +32,12 @@ h6 {
   margin: 0;
 }
 
-main>.text {
-  padding: 0 theme.$text-padding;
-  margin: theme.$text-separation 0;
+main > .text {
+  padding: theme.$text-separation theme.$text-padding;
+  background-color: #303030;
+}
+.text {
+  position: relative;
 }
 
 html,

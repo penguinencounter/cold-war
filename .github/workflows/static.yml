@@ -41,12 +41,18 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '>=3.11'
-      - name: install deps
+          cache: pip
+      - name: Install dependencies (npm)
         run: npm i
         shell: bash
-      - name: build webpack
+      - name: Install dependencies (pip)
+        run: pip install -r requirements.txt
+        shell: bash
+      - name: Build CSS + JS (Webpack)
         run: npm run build:prod
-      - name: organize
+      - name: Build HTML (Jinja + bs4)
+        run: python generate.py
+      - name: Collect and organize outputs
         run: python collate.py
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -10,6 +10,11 @@ $hero-padding: 20px;
 $text-padding: 20px;
 // used in margin, applied twice between two text
 $text-separation: 10px;
+// Gutters in desktop view
+// Material 24px icon + 10px 
+$left-gutter-width: 24px + 10px;
+// 70 characters in the text font.
+$readable-width: 700px;
 
 $hero-attr-bg: #101010;
 $hero-attr-color: #606060;

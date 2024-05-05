@@ -1,4 +1,5 @@
 @use "lib";
+@use "theme";
 
 .mobile-only {
   display: none !important;
@@ -8,3 +9,15 @@
   @include lib.navbar-layout-rules;
   height: 100%;
 }
+
+section.text {
+  max-width: theme.$readable-width;
+  margin: 0 auto;
+}
+$text-align-offset: calc(50vw - (theme.$readable-width / 2) + theme.$hero-padding);
+.hero {
+  padding-left: $text-align-offset;
+}
+.hero-attr {
+  padding-left: $text-align-offset;
+} 
