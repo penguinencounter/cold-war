@@ -134,6 +134,13 @@ h3 {
   font-size: 1.66rem;
 }
 
+.text a {
+  color: theme.$link-default;
+  &:visited {
+    color: theme.$link-visited;
+  }
+}
+
 .flexfill {
   flex: 1 0;
   width: 0;

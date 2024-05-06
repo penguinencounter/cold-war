@@ -1,4 +1,4 @@
-{% macro sbs_img(url, attrib=none, aspect=none) %}
+{% macro sbs_img(url, attrib=none, aspect=none, css_extra="") %}
 {% if aspect == none %}
 {% set aspect = get_image_aspect(url) %}
 {% endif %}
@@ -7,7 +7,7 @@
 {{ attrib }}
 </div>
 {% endif %}
-<div class="-image" role="img" style="--img: url('{{url}}'); --min-aspect: {{aspect}};">
+<div class="-image" role="img" style="--img: url('{{url}}'); --min-aspect: {{aspect}}; {{css_extra}}">
   <a href="{{url}}" class="icon-btn" title="Go to image">
   <div class="icon --file_open"></div>
   </a>

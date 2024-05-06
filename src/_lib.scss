@@ -18,6 +18,12 @@
     font-size: 1.5rem;
   }
 
+  &[data-unavailable] {
+    --color-primary: #{theme.$unavailable};
+    --color-ambient: #{theme.$unavailable-ambient};
+    text-decoration: line-through 3px;
+  }
+
   &[data-current] {
     --color-primary: #{theme.$current};
     --color-ambient: #{theme.$current-ambient};
