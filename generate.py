@@ -14,7 +14,6 @@ from typing import NamedTuple
 
 from bs4 import BeautifulSoup, Tag
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from requests import get
 import requests
 from rich.console import Console
 from PIL import Image, UnidentifiedImageError
@@ -31,11 +30,16 @@ makedirs(outbound, exist_ok=True)
 
 inbound = Path("templates")
 jenv = Environment(loader=FileSystemLoader("templates"), autoescape=select_autoescape())
-ua = "requests/2.31.0 for github:penguinencounter/cold-war"
+ua = "StaticBuildBot/0.0.0 (github:penguinencounter/cold-war. Tell penguinencounter2 at gmail if I'm being problematic.) python-requests/2.31.0"
 if is_gha:
-    ua += " (on GitHub Actions)"
+    ua += " (running on GitHub Actions)"
 else:
-    ua += " (local build)"
+    ua += " (running locally)"
+
+sess = requests.Session()
+sess.headers.update({
+    'User-Agent': ua
+})
 
 enable_caching = not (is_gha or environ.get("NO_CACHE") is not None)
 
@@ -57,6 +61,23 @@ def trunc(string, length):
     return string
 
 
+def hexdump(byte: bytes, count: int = 16):
+    sample = byte[:count]
+    hexdump_asci = ""
+    hexdump_raw = sample.hex()
+    for char in sample:
+        if (
+            chr(char)
+            in string.ascii_letters
+            + string.digits
+            + "!@#$%^&*()_+-=[]{},./<>?'\"\\| "
+        ):
+            hexdump_asci += chr(char)
+        else:
+            hexdump_asci += "."
+    return f'{hexdump_raw} {hexdump_asci}'
+
+
 @template_func
 def get_image_aspect(url: str):
     if (result := fscache_data.get(url)) is not None:
@@ -65,10 +86,11 @@ def get_image_aspect(url: str):
         )
         return result
     term.print(rf'[bright_black]\[debg] requesting image: {trunc(url, 48)}')
-    resp: requests.Response = requests.get(url, allow_redirects=True)
+    resp: requests.Response = sess.get(url, allow_redirects=True)
     if resp.status_code != 200:
         term.print(
             rf"[bright_red]\[err!] remote request failed: [bold]{resp.status_code})[/] at {trunc(url, 48)}[/] [blue]using fallback[/]"
+            f"\n content preview: {resp.content.decode('utf-8')}"
         )
         # this kinda works?
         return "1/1"
@@ -81,22 +103,9 @@ def get_image_aspect(url: str):
         fscache_data[url] = dim
         return dim
     except UnidentifiedImageError:
-        sample = resp.content[:16]
-        hexdump_asci = ""
-        hexdump_raw = sample.hex()
-        for char in sample:
-            if (
-                chr(char)
-                in string.ascii_letters
-                + string.digits
-                + "!@#$%^&*()_+-=[]{},./<>?'\"\\| "
-            ):
-                hexdump_asci += chr(char)
-            else:
-                hexdump_asci += "."
         term.print(
             rf"[bright_red]\[err!] failed to read image at {trunc(url, 48)} | first raw bytes follow:[/]"
-            f"\n  [red]{hexdump_raw} {hexdump_asci}[/]"
+            f"\n  [red]{hexdump(resp.content, 16)}[/]"
         )
         return "1/1"
 
