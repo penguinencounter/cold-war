@@ -10,11 +10,7 @@
   height: 100%;
 }
 
-.text {
-  max-width: theme.$readable-width;
-  margin: 0 auto;
-}
-main > .single-image {
+.text, .yt-vid, main > .single-image {
   max-width: theme.$readable-width;
   margin: 0 auto;
 }

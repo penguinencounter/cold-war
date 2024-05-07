@@ -1,0 +1,77 @@
+{% extends "_content_page.html" %}
+{% from "_components.html" import sbs_img, single_img %}
+{% block body %}
+<section class="hero"
+  style="--img:url(https://upload.wikimedia.org/wikipedia/commons/f/f1/Cholon_after_Tet_Offensive_operations_1968.jpg);">
+  <h1>Vietnam</h1>
+  <div class="flexfill"></div>
+  <a class="icon-btn"
+    href="https://upload.wikimedia.org/wikipedia/commons/f/f1/Cholon_after_Tet_Offensive_operations_1968.jpg"
+    title="Go to image">
+    <div class="icon --file_open"></div>
+  </a>
+</section>
+<div class="hero-attr">
+  Meyerson, Joel D., Public domain, via Wikimedia Commons
+</div>
+<section class="image-text">
+  <div class="text">
+    <p>
+      The Vietnam War was one of many proxy wars that were a part of the Cold War.
+      In this case, the war was between North Vietnam and South Vietnam. North Vietnam's goal was to
+      unite both North and South Vietnam under North Vietnam's leader, Ho Chi Minh.
+      The United States' goal was to prevent this from happening.
+      The Soviet Union supported North Vietnam.
+    </p>
+  </div>
+  {{ sbs_img(
+  "https://upload.wikimedia.org/wikipedia/commons/9/99/Vietnam_war_1957_to_1960_map_english.svg",
+  "Don-kun, NordNordWest, CC BY-SA 3.0 <https: //creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons",
+    "422/599"
+    ) }}
+</section>
+<section class="image-text --flipped">
+  <div class="text">
+    <p>
+      Notably, the Vietnam War was the first war to be televised in the United States. By 1966, over 500 thousand
+      troops were deployed by the United States to Vietnam. The coverage of the war, alongside daily reports of
+      military casualties, lead to criticism of the war effort from civilians at home.
+      Due to the increased access to war media, people were exposed to the gruesome wartime conditions that
+      the soldiers were in. However, the reporting also covered less laudable things. For example, in November of 1969,
+      the newspapers covering the war reported that U.S. troops had massacred men, women, and children in a remote
+      village.
+      These factors lead to protests over the U.S.'s deployment into Vietnam, and whether the effort was worth it is
+      still disputed today.
+    </p>
+  </div>
+  {{ sbs_img(
+  "https://upload.wikimedia.org/wikipedia/commons/1/1a/Vietnam_War_on_television.jpg",
+  "Warren K. Leffler, U.S. News & World Report Magazine, Public domain, via Wikimedia Commons"
+  ) }}
+</section>
+<section class="image-text">
+  <div class="text">
+    <p> <!-- 3 or more sentences -->
+      A key part of the war was the Tet Offensive. This attack occured on <i>Tet</i>, a traditional
+      Vietnamese holiday, which celebrates the beginning of a new lunar year. This day is generally
+      considered a ceasefire, but some North Vietnam leaders decided that an extreme offensive could
+      be effective. The theory was that the combination of an unexpected attack with the already
+      taxed South Vietnam citizens would result in an uprising of the South.
+    </p>
+    <p>
+      While the initial attack was mildly successful, even reaching the U.S. embassy in Saigon, the
+      counterattack pushed the army back successfully. The result was the North Vietnamese suffering
+      around 45 thousand casualties, while the South Vietnamese and United States only lost a few thousand.
+    </p>
+  </div>
+  {{ sbs_img(
+  "https://upload.wikimedia.org/wikipedia/commons/f/f1/Cholon_after_Tet_Offensive_operations_1968.jpg",
+  "Meyerson, Joel D., Public domain, via Wikimedia Commons",
+  none,
+  "background-position: 80% 50%;"
+    ) }}
+</section>
+<section class="yt-vid">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/89_3DgW_7mg?si=gGxiNvrkuKVt1_ad" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+{% endblock %}
