@@ -1,9 +1,22 @@
 {% macro open_image_btn(url, title="Go to image") %}
-<a class="icon-btn"
-    href="{{url}}"
-    title="{{title}}">
-    <div class="icon --file_open"></div>
+<a class="icon-btn" href="{{url}}" title="{{title}}">
+  <div class="icon --file_open"></div>
 </a>
+{% endmacro %}
+
+{% macro image_hero(image_url=none, attr=none, css_extra="", flex_provided=false) %}
+<section class="hero" style="{% if image_url != none %} --img:url('{{image_url}}'); {% endif %} {{css_extra}}">
+  {{ caller() }}
+  {% if not flex_provided %} <div class="flexfill"></div> {% endif %}
+  {% if image_url != none %}
+  {{ open_image_btn(image_url) }}
+  {% endif %}
+</section>
+{% if attr != none %}
+<div class="hero-attr">
+  {{attr}}
+</div>
+{% endif %}
 {% endmacro %}
 
 {% macro sbs_img(url, attrib=none, aspect=none, css_extra="") %}
