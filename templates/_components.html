@@ -4,12 +4,30 @@
 {% endif %}
 {% if attrib != none %}
 <div class="image-attr">
-{{ attrib }}
+  {{ attrib }}
 </div>
 {% endif %}
 <div class="-image" role="img" style="--img: url('{{url}}'); --min-aspect: {{aspect}}; {{css_extra}}">
   <a href="{{url}}" class="icon-btn" title="Go to image">
-  <div class="icon --file_open"></div>
+    <div class="icon --file_open"></div>
   </a>
 </div>
+{% endmacro %}
+
+{% macro single_img(url, attrib=none, aspect=none, css_extra="") %}
+{% if aspect == none %}
+{% set aspect = get_image_aspect(url) %}
+{% endif %}
+<section class="single-image">
+  <div class="-image" role="img" style="--img: url('{{url}}'); aspect-ratio: {{aspect}}; {{css_extra}}">
+    <a href="{{url}}" class="icon-btn" title="Go to image">
+      <div class="icon --file_open"></div>
+    </a>
+  </div>
+  {% if attrib != none %}
+  <div class="image-attr">
+    {{ attrib }}
+  </div>
+  {% endif %}
+</section>
 {% endmacro %}

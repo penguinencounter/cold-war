@@ -14,6 +14,10 @@
   max-width: theme.$readable-width;
   margin: 0 auto;
 }
+main > .single-image {
+  max-width: theme.$readable-width;
+  margin: 0 auto;
+}
 
 $text-align-offset: calc(50vw - (theme.$readable-width / 2) + theme.$hero-padding);
 

@@ -42,10 +42,31 @@ footer {
   padding: theme.$text-separation theme.$text-padding;
   background-color: #303030;
 }
+
 .icon-btn {
   padding: 10px;
   border-radius: 10px;
   background-color: #00000080;
+}
+
+.image-attr {
+  padding: 5px + theme.$hero-attr-capsize + 2px theme.$hero-padding 5px;
+  position: relative;
+  background: theme.$hero-attr-bg;
+  color: theme.$hero-attr-color;
+  font-size: 0.8rem;
+  transition: color ease-in-out 0.2s;
+}
+
+.image-attr::before {
+  position: absolute;
+  top: 5px;
+  content: "IMAGE CREDIT";
+  font-size: theme.$hero-attr-capsize;
+}
+
+.image-attr:hover {
+  color: theme.$selected;
 }
 
 // Image + text. Layout varies by @media.
@@ -69,41 +90,52 @@ main>.image-text {
   grid-area: text;
   width: 100%;
 }
+
 .image-text>.image-attr {
   grid-area: attr;
   width: 100%;
-  padding: 5px + theme.$hero-attr-capsize + 2px theme.$hero-padding 5px;
-  position: relative;
-  background: theme.$hero-attr-bg;
-  color: theme.$hero-attr-color;
-  font-size: 0.8rem;
-  transition: color ease-in-out 0.2s;
-}
-.image-text>.image-attr::before {
-  position: absolute;
-  top: 5px;
-  content: "IMAGE CREDIT";
-  font-size: theme.$hero-attr-capsize;
-}
-.image-text>.image-attr:hover {
-  color: theme.$selected;
 }
 
-.image-text>.-image {
-  grid-area: image;
-  align-self: stretch;
-  --img: none;
-  --min-aspect: 3/1;
-  background: var(--img);
-  background-size: cover;
-  background-position: center;
-  aspect-ratio: var(--min-aspect);
-  position: relative;
+.image-text,
+.single-image {
+  &>.-image>.icon-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  &>.-image {
+    grid-area: image;
+    align-self: stretch;
+    --img: none;
+    --min-aspect: 3/1;
+    background: var(--img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: var(--min-aspect);
+    position: relative;
+  }
 }
-.image-text>.-image>.icon-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+
+// Image with attribution
+main>.single-image {
+  display: grid;
+  width: 100%;
+
+  grid-template-areas: "image" "attr";
+  grid-template-rows: max-content max-content;
+}
+
+.single-image>.-image {
+  grid-area: image;
+  width: 100%;
+  --img: none;
+  background-image: var(--img);
+}
+
+.single-image>.image-attr {
+  grid-area: attr;
+  width: 100%;
 }
 
 html,
@@ -136,6 +168,7 @@ h3 {
 
 .text a {
   color: theme.$link-default;
+
   &:visited {
     color: theme.$link-visited;
   }
