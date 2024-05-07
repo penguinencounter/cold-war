@@ -1,0 +1,54 @@
+{% extends "_content_page.html" %}
+{% from "_components.html" import sbs_img, single_img, open_image_btn, image_hero %}
+{% block body %}
+
+{% call image_hero("https://upload.wikimedia.org/wikipedia/commons/f/f6/Smoke_break_el_serrano_1987.jpg") %}
+<h1>Latin America</h1>
+{% endcall %}
+<div class="hero-attr">
+  Tiomono at English Wikipedia, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia
+  Commons
+</div>
+{{single_img(
+"https://upload.wikimedia.org/wikipedia/commons/c/c0/10th_anniversary_of_the_Nicaraguan_revolution_in_Managua%2C_1989.jpg",
+"tiarescott from Managua, CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&rt;, via Wikimedia Commons",
+"3/1"
+)}}
+<section class="image-text">
+  <div class="text">
+    <h3>The Nicaraguan Revolution</h3>
+    <p>
+      In 1927, in an attempt to end a previous civil war and establish
+      stability in the region of Nicaragua, the United States installed
+      Anastasio Somoza as commander of the National Guard. After a fraudulent
+      election, Somoza became presdient of Nicaragua.
+    </p>
+    <p>
+      For the next 43 years, Somoza and his family ruled Nicaragua under a harsh dictatorship, with support from the
+      United States.
+      However, after the Cuban Revolution in 1959, alongside its perpetrator Fidel Castro's anti-American ideas,
+      lead to people in Nicaragua rising up against the Somozas and the United States.
+      The group of rebels against Somoza formed the <i>Sandinista movement</i>.
+      While the United States had decreased its support of the government of Nicaragua, President Carter labeled the
+      rebels as Marxists, and was wary of having a Soviet-Cuban effort to infiltrate Latin America.
+      However, due to the United States' lack of confidence in the rebels, Somoza was not supported in his position.
+      The Sandinista soldiers, with assistance from Cuba and the Soviet Union, surrounded the capital and forced
+      Somoza to resign.
+    </p>
+  </div>
+  {{sbs_img(
+  "https://upload.wikimedia.org/wikipedia/commons/3/34/NIC_orthographic.svg",
+  "Addicted04, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&rt;, via Wikimedia Commons",
+  "1/1"
+  )}}
+</section>
+<section class="image-text --flipped">
+  <div class="text">
+    <h3>Chile</h3>
+    <p>
+      In 1961, President John F. Kennedy signed the Alliance for Progress
+      in order to prevent the spread of socialism throughout the
+    </p>
+  </div>
+</section>
+{% endblock %}

@@ -14,7 +14,7 @@
 </section>
 {% if attr != none %}
 <div class="hero-attr">
-  {{attr}}
+  {{attr|safe}}
 </div>
 {% endif %}
 {% endmacro %}
@@ -25,7 +25,7 @@
 {% endif %}
 {% if attrib != none %}
 <div class="image-attr">
-  {{ attrib }}
+  {{ attrib|safe }}
 </div>
 {% endif %}
 <div class="-image" role="img" style="--img: url('{{url}}'); --min-aspect: {{aspect}}; {{css_extra}}">
@@ -45,7 +45,7 @@
   </div>
   {% if attrib != none %}
   <div class="image-attr">
-    {{ attrib }}
+    {{ attrib|safe }}
   </div>
   {% endif %}
 </section>
