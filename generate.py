@@ -144,9 +144,6 @@ for name in listdir(inbound):
         # look upwards for more navitems
         while (upwards := upwards.parent).name != "nav":
             if upwards.attrs.get("data-is-nav-target") is not None:
-                term.print(
-                    rf"[bright_black]\[debg] found parent navitem: {upwards.attrs}[/]"
-                )
                 upwards.attrs["data-current-inside"] = ""
     else:
         term.print(
