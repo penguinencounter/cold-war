@@ -1,14 +1,11 @@
 {% extends "_content_page.html" %}
+{% from "_components.html" import open_image_btn %}
 {% block body %}
 <section class="hero"
   style="--img: url('https://upload.wikimedia.org/wikipedia/commons/7/7d/US_Army_tanks_face_off_against_Soviet_tanks%2C_Berlin_1961.jpg');">
   <h1>The Cold War</h1>
   <div class="flexfill"></div>
-  <a class="icon-btn"
-    href="https://upload.wikimedia.org/wikipedia/commons/7/7d/US_Army_tanks_face_off_against_Soviet_tanks%2C_Berlin_1961.jpg"
-    title="Go to image">
-    <div class="icon --file_open"></div>
-  </a>
+  {{open_image_btn("https://upload.wikimedia.org/wikipedia/commons/7/7d/US_Army_tanks_face_off_against_Soviet_tanks%2C_Berlin_1961.jpg")}}
 </section>
 <div class="hero-attr">
   U.S. Army photo Photo Credit: USAMHI, Public domain, via Wikimedia Commons

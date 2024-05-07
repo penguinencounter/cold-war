@@ -1,15 +1,11 @@
 {% extends "_content_page.html" %}
-{% from "_components.html" import sbs_img %}
+{% from "_components.html" import sbs_img, open_image_btn %}
 {% block body %}
 <section class="hero"
   style="--img: url('https://upload.wikimedia.org/wikipedia/commons/f/f4/Stop_Communism_-_NARA_-_5730080.jpg'); background-position: 0 10%;">
   <h1>U.S. and Soviet Union Philosophies</h1>
   <div class="flexfill"></div>
-  <a class="icon-btn"
-    href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Stop_Communism_-_NARA_-_5730080.jpg"
-    title="Go to image">
-    <div class="icon --file_open"></div>
-  </a>
+  {{open_image_btn("https://upload.wikimedia.org/wikipedia/commons/f/f4/Stop_Communism_-_NARA_-_5730080.jpg")}}
 </section>
 <div class="hero-attr">
   National Archives at College Park, Public domain, via Wikimedia Commons
