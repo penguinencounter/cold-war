@@ -1,0 +1,26 @@
+{% extends "_content_page.html" %}
+{% from "_components.html" import sbs_img, single_img, open_image_btn, image_hero %}
+{% block body %}
+{% call image_hero(
+"https://upload.wikimedia.org/wikipedia/commons/f/f8/Peking_Mausoleum_Mao_Zedong-20110102-RM-210354.jpg",
+'<a href="https://commons.wikimedia.org/wiki/File:Peking_Mausoleum_Mao_Zedong-20110102-RM-210354.jpg">Ermell</a>, <a
+  href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons'
+) %}
+<h1>China</h1>
+{% endcall %}
+
+{{single_img(
+  'https://upload.wikimedia.org/wikipedia/commons/0/01/Chaing_Kai-shek%27s_Strategy_1947.PNG',
+  '<a href="https://commons.wikimedia.org/wiki/File:Chaing_Kai-shek%27s_Strategy_1947.PNG">U.S. Army</a>, Public domain, via Wikimedia Commons'
+)}}
+
+<section class="image-text">
+  <div class="text">
+    <p>
+      Prior to World War II, China was undergoing a civil war between the Communists and Nationalists.
+      Mao Zedong 
+    </p>
+  </div>
+</section>
+
+{% endblock %}
