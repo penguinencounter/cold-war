@@ -1,8 +1,7 @@
 {% extends "_content_page.html" %}
 {% from "_components.html" import sbs_img %}
 {% block body %}
-<section class="hero"
-  style="--img: linear-gradient(to right, #8080ff, #ff8080);">
+<section class="hero" style="--img: linear-gradient(to right, #8080ff, #ff8080);">
   <h1>Cold War Timeline</h1>
   <div class="flexfill"></div>
 </section>
@@ -13,7 +12,7 @@
       The Yalta Conference was a conference tahing place during Febuary of 1945.
       The conference was in a Russian resort town, and Franklin D. Roosevelt,
       Winston Churchill, and Joseph Stalin met to make decisions about the war.
-      
+
       The three agreed on splitting Germany into four zones. The USSR obtained
       East Germany, and France, the United States, and Britain would get West Germany.
       The United States would obtain an agreement from the USSR to assist in the fight
@@ -25,7 +24,9 @@
       This was considered to be the beginning of the Cold War in Europe.
     </p>
   </div>
-  {{ sbs_img("https://upload.wikimedia.org/wikipedia/commons/0/05/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg", "US government photographer, Public domain, via Wikimedia Commons", "2/1") }}
+  {{
+  sbs_img("https://upload.wikimedia.org/wikipedia/commons/0/05/Yalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg",
+  "US government photographer, Public domain, via Wikimedia Commons", "2/1") }}
 </section>
 <section class="image-text">
   <div class="text">
@@ -49,7 +50,8 @@
       to Stalin. However, due to Stalin's extensive intelligence network, this was not news to him.
     </p>
   </div>
-  {{ sbs_img("https://upload.wikimedia.org/wikipedia/commons/a/af/Potsdam_conference_1945-8.jpg", "Army Signal Corps Collection in the U.S. National Archives., Public domain, via Wikimedia Commons", "2/1") }}
+  {{ sbs_img("https://upload.wikimedia.org/wikipedia/commons/a/af/Potsdam_conference_1945-8.jpg", "Army Signal Corps
+  Collection in the U.S. National Archives., Public domain, via Wikimedia Commons", "2/1") }}
 </section>
 <!-- <section class="image-text">
   <div class="text">
@@ -98,10 +100,13 @@
       The "Iron Curtain" speech was delivered by Winston Churchill on
       March 5, 1946. The speech was delivered at Westiminster College in Missouri
       with President Truman in attendance.
-      After the speech delivered by Stalin, 
+      After the speech delivered by Stalin,
     </p>
   </div>
-  {{ sbs_img("https://www.nationalww2museum.org/sites/default/files/styles/wide_medium/public/2021-03/Lead%20Image%20-%20KB%20M-3.jpg", "The National WWII Museum - https://www.nationalww2museum.org/war/articles/winston-churchills-iron-curtain-speech-march-5-1946", "2/1") }}
+  {{
+  sbs_img("https://www.nationalww2museum.org/sites/default/files/styles/wide_medium/public/2021-03/Lead%20Image%20-%20KB%20M-3.jpg",
+  "The National WWII Museum -
+  https://www.nationalww2museum.org/war/articles/winston-churchills-iron-curtain-speech-march-5-1946", "2/1") }}
 </section>
 <section class="image-text">
   <div class="text">
@@ -111,11 +116,11 @@
     </p>
   </div>
   {{
-    sbs_img(
-      "https://upload.wikimedia.org/wikipedia/commons/7/78/Truman_desk.jpg",
-      "United States Army Signal Corps, Public domain, via Wikimedia Commons",
-      "2/1"
-    )
+  sbs_img(
+  "https://upload.wikimedia.org/wikipedia/commons/7/78/Truman_desk.jpg",
+  "United States Army Signal Corps, Public domain, via Wikimedia Commons",
+  "2/1"
+  )
   }}
 </section>
 <section class="text">

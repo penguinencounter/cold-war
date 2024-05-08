@@ -156,7 +156,7 @@ for name in listdir(inbound):
     )
 
     # dump the HTML
-    with open(outbound / name, "w") as f:
+    with open(outbound / name, "w", encoding="utf-8") as f:
         f.write(str(soup))
 
 if enable_caching:
