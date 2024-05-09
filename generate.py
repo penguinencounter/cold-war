@@ -22,6 +22,7 @@ term = Console()
 is_gha = environ.get("GITHUB_ACTIONS", None) == "true"
 if is_gha:
     term = Console(force_terminal=True, force_interactive=False)
+is_dev = not (is_gha or environ.get("PRODUCTION", False))
 term.print("[bold green]Merging / generating HTML...[/bold green]")
 
 
@@ -37,11 +38,13 @@ else:
     ua += " (running locally)"
 
 sess = requests.Session()
-sess.headers.update({
-    'User-Agent': ua
-})
+sess.headers.update({"User-Agent": ua})
 
 enable_caching = not (is_gha or environ.get("NO_CACHE") is not None)
+
+term.print(
+    f'[bright_yellow][bold]status:[/] {("dev" if is_dev else "prod")} {("(gha) " if is_gha else "")}{"cache disabled" if not enable_caching else ""}[/]'
+)
 
 cachefile = Path(".image_cache")
 fscache_data: dict[str, str] = {}
@@ -68,14 +71,12 @@ def hexdump(byte: bytes, count: int = 16):
     for char in sample:
         if (
             chr(char)
-            in string.ascii_letters
-            + string.digits
-            + "!@#$%^&*()_+-=[]{},./<>?'\"\\| "
+            in string.ascii_letters + string.digits + "!@#$%^&*()_+-=[]{},./<>?'\"\\| "
         ):
             hexdump_asci += chr(char)
         else:
             hexdump_asci += "."
-    return f'{hexdump_raw} {hexdump_asci}'
+    return f"{hexdump_raw} {hexdump_asci}"
 
 
 @template_func
@@ -85,7 +86,7 @@ def get_image_aspect(url: str):
             rf"[bright_blue]\[info] using cached {result} for {trunc(url, 48)}[/]"
         )
         return result
-    term.print(rf'[bright_black]\[debg] requesting image: {trunc(url, 48)}')
+    term.print(rf"[bright_black]\[debg] requesting image: {trunc(url, 48)}")
     resp: requests.Response = sess.get(url, allow_redirects=True)
     if resp.status_code != 200:
         term.print(
@@ -98,8 +99,8 @@ def get_image_aspect(url: str):
     try:
         image_data = Image.open(raw_data)
         factor = gcd(image_data.width, image_data.height)
-        dim = f'{image_data.width // factor}/{image_data.height // factor}'
-        term.print(rf'[green]\[ ok ] {trunc(url, 48)} aspect ratio is {dim}')
+        dim = f"{image_data.width // factor}/{image_data.height // factor}"
+        term.print(rf"[green]\[ ok ] {trunc(url, 48)} aspect ratio is {dim}")
         fscache_data[url] = dim
         return dim
     except UnidentifiedImageError:
@@ -133,7 +134,7 @@ for name in listdir(inbound):
         term.print(rf"[blue]\[skip] {name}[/]")
         continue
     template = jenv.get_template(name)
-    htmlstr = template.render()
+    htmlstr = template.render(devenv=is_dev)
     soup = BeautifulSoup(htmlstr, "lxml")
     this_navitem = soup.select(f'[data-is-nav-target][href="{name}"]')
     if len(this_navitem) == 1:
@@ -160,7 +161,7 @@ for name in listdir(inbound):
         f.write(str(soup))
 
 if enable_caching:
-    with open(cachefile, 'w') as f:
+    with open(cachefile, "w") as f:
         json.dump(fscache_data, f)
 
 term.print("[bold green]Bundling files...[/bold green]")

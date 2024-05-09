@@ -4,5 +4,6 @@
     },
     "[scss]": {
         "editor.tabSize": 2
-    }
+    },
+    "languageToolLinter.languageTool.ignoredWordsInWorkspace": []
 }

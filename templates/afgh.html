@@ -1,0 +1,62 @@
+{% extends "_content_page.html" %}
+{% from "_components.html" import sbs_img, single_img, open_image_btn, image_hero %}
+{% block body %}
+{% call image_hero(
+'https://upload.wikimedia.org/wikipedia/commons/6/6c/Mortar_attack_on_Shigal_Tarna_garrison%2C_Kunar_Province%2C_87.jpg',
+'<a
+  href="https://commons.wikimedia.org/wiki/File:Mortar_attack_on_Shigal_Tarna_garrison,_Kunar_Province,_87.jpg">erwinlux</a>,
+<a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons'
+) %}
+<h1>Afghanistan</h1>
+{% endcall %}
+{{single_img(
+'https://upload.wikimedia.org/wikipedia/commons/9/99/Afghanistan_in_its_region.svg',
+'<a href="https://commons.wikimedia.org/wiki/File:Afghanistan_in_its_region.svg">TUBS</a>, <a
+  href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons',
+'32/18'
+)}}
+<section class="image-text">
+  <div class="text">
+    <p>
+      Afghanistan is a strategic asset, because it provides an advantageous position in Central Asia.
+      Great Britain pre-USSR Russia battled for it for many years prior to the Cold War.
+      After Afghanistan became independent of Great Britain, the Soviet Union established relations with the Afghan
+      government.
+      As Great Britain and the United States spread into Asia, the USSR felt threatened by their efforts in the
+      neighboring country of Pakistan.
+      On December 26, 1979, Soviet Union tanks invaded Afghanistan in order to stop a new rebel group.
+      They also wanted to enforce the ideals of the Brezhnev Doctrine, which stated that once a nation became socialist,
+      the USSR would prevent it from becoming capitalist again.
+      These rebels, known as the <i>mujahideen</i>, rejected the current communist government and demanded a new one.
+      The Soviets believed that this would be an easy battle, because the mujahideen were not very well armed.
+      The battle with the Soviets would continue for ten years.
+    </p>
+  </div>
+  {{sbs_img(
+  'https://upload.wikimedia.org/wikipedia/commons/e/ec/Road_to_Jalalabad.jpg',
+  '<a href="https://commons.wikimedia.org/wiki/File:Road_to_Jalalabad.jpg">Todd Huffman from Phoenix, AZ</a>, <a
+    href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons'
+  )}}
+</section>
+
+<section class="image-text --flipped">
+  <div class="text">
+    <p>
+      When the Soviets invaded, they did not get the battle that they were expecting.
+      Due to the difficult terrain, large weapons like tanks were not suitable for warfare in Afghanistan.
+      Additionally, the mujahideen, which had lived in Afghanistan for a long time, were familiar with how to
+      effectively fight.
+      The rebels also employed guerilla warfare tactics and stealth to attack the Soviets.
+      The United States, under President Carter, supplied economic aid to the mujahideen to prevent the attack.
+      Unfortunately, by the winter of 1979, the defenses failed and the Soviet Union  
+    </p>
+  </div>
+</section>
+
+<section class="yt-vid">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/au1BHKUhDuk?si=Mz0Jpo_Hun6A8yhT"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+{% endblock %}
