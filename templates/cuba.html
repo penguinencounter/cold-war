@@ -1,18 +1,82 @@
 {% extends "_content_page.html" %}
-{% from "_components.html" import open_image_btn %}
+{% from "_components.html" import sbs_img, single_img, open_image_btn, image_hero %}
 {% block body %}
-<section class="hero"
-  style="--img: url('https://upload.wikimedia.org/wikipedia/commons/7/7d/US_Army_tanks_face_off_against_Soviet_tanks%2C_Berlin_1961.jpg');">
-  <h1>Cuba</h1>
-  <div class="flexfill"></div>
-  {{open_image_btn("https://upload.wikimedia.org/wikipedia/commons/7/7d/US_Army_tanks_face_off_against_Soviet_tanks%2C_Berlin_1961.jpg")}}
+{% call image_hero(
+'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Aerial_Photograph_of_Intercontinental_Range_Ballistic_Missile_Launch_Site_Number_One_at_Guanajay%2C_Cuba_-_NARA_-_193934.tif/lossy-page1-3000px-Aerial_Photograph_of_Intercontinental_Range_Ballistic_Missile_Launch_Site_Number_One_at_Guanajay%2C_Cuba_-_NARA_-_193934.tif.jpg',
+'<a
+  href="https://commons.wikimedia.org/wiki/File:Aerial_Photograph_of_Intercontinental_Range_Ballistic_Missile_Launch_Site_Number_One_at_Guanajay,_Cuba_-_NARA_-_193934.tif">National
+  Archives and Records Administration</a>, Public domain, via Wikimedia Commons'
+) %}
+<h1>Cuba&nbsp;</h1>
+<h3>and the Missile Crisis</h3>
+{% endcall %}
+{{single_img(
+'https://upload.wikimedia.org/wikipedia/commons/0/01/The_relative_ranges_of_the_IL-28%2C_SS-4%2C_and_SS-5%2C_stationed_on_Cuba.png',
+'<a
+  href="https://commons.wikimedia.org/wiki/File:The_relative_ranges_of_the_IL-28,_SS-4,_and_SS-5,_stationed_on_Cuba.png">Defense
+  Intelligence Agency, DID Graphics</a>, Public domain, via Wikimedia Commons'
+)}}
+<section class="image-text">
+  <div class="text">
+    <h3>Cuba</h3>
+    <p>
+      After the revolution in Cuba led by Fidel Castro, Cuba's new government cut ties with the United States.
+      Instead, Castro started working with the Soviet Union instead.
+      These actions made the United States very concerned due to how close Cuba is to the United States.
+      In March 1960, the President, Dwight D. Eisenhower, directed the CIA to prepare to invade Cuba and overthrow
+      Castro.
+      After John F. Kennedy was elected, after consulting the CIA plans, he concluded that Fidel Castro was effectively
+      a member of the Soviet Union, and approved the plan.
+      However, this attack, known as the <i>Bay of Pigs invasion</i>, went horribly wrong and all the troops were
+      defeated by Castro in two days.
+      Additionally, this attack spurred Castro to develop stronger ties with the USSR, and publicly announced the
+      adoption of socialism for Cuba.
+    </p>
+    <p>
+      After the failure of the Bay of Pigs invasion, a second plan, named <i>Operation Mongoose</i>, was formed with a
+      similar goal.
+      However, the method of removing Castro was different.
+      Instead of going directly for the government, the United States would try to destabilize the government in a more
+      covert way, including anti-socialist propaganda and sabotage.
+      However, this plan failed to remove Castro as well, and the Soviet Union had started to ship weapons to Cuba.
+    </p>
+  </div>
+  {{sbs_img(
+  'https://upload.wikimedia.org/wikipedia/commons/7/77/A4D-2_Skyhawks_of_VA-34_in_flight_over_USS_Essex_%28CVS-9%29_during_the_Bay_of_Pigs_Invasion_in_April_1961.jpg',
+  '<a
+    href="https://commons.wikimedia.org/wiki/File:A4D-2_Skyhawks_of_VA-34_in_flight_over_USS_Essex_(CVS-9)_during_the_Bay_of_Pigs_Invasion_in_April_1961.jpg">Robert
+    L. Lawson</a>, Public domain, via Wikimedia Commons'
+  )}}
 </section>
-<div class="hero-attr">
-  <a href="https://commons.wikimedia.org/wiki/File:US_Army_tanks_face_off_against_Soviet_tanks,_Berlin_1961.jpg">U.S.
-    Army photo Photo Credit: USAMHI</a>, Public domain, via Wikimedia Commons
-</div>
-<section class="text">
-  cuba.
-
+<section class="image-text --flipped">
+  <div class="text">
+    <h3>The Missile Crisis</h3>
+    <p>
+      The United States was concerned that the aforementioned weapons being shipped to Cuba were in fact missiles with
+      nuclear warheads.
+      In secret, Fidel Castro of Cuba and Nikita Khrushchev of the Soviet Union made an agreement to put Soviet nuclear
+      missiles on Cuba's land in order to deter invasions.
+      While attempts were made to build up the sites discreetly, they were noticed by United States intelligence from
+      the air.
+      On October 14, the United States had clear pictures of nuclear missiles being constructed in Cuba, and the next
+      day, the White House had been alerted of the threat.
+      On October 22, the President decided to <i>quarantine</i> (blockade but not go to war with) Cuba.
+      The President also sent a message to Khrushchev that weapons would not be allowed in Cuba and demanded the removal
+      of the missile launchers.
+      At this point, launching the missiles would cause a thermonuclear war.
+      Eventually, Khrushchev and Kennedy agreed on a plan: to remove the Soviet missiles from Cuba in exchange for
+      removing the US missiles from Turkey.
+    </p>
+  </div>
+  {{sbs_img(
+  'https://upload.wikimedia.org/wikipedia/commons/0/0e/U2_Image_of_Cuban_Missile_Crisis.jpg',
+  '<a href="https://commons.wikimedia.org/wiki/File:U2_Image_of_Cuban_Missile_Crisis.jpg">CIA</a>, Public domain, via
+  Wikimedia Commons'
+  )}}
 </section>
+<section class="yt-vid"><iframe width="560" height="315"
+    src="https://www.youtube-nocookie.com/embed/bwWW3sbk4EU?si=eV128mz3ubId1Kw5" title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></section>
 {% endblock %}
