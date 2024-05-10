@@ -41,10 +41,18 @@ footer {
   color: #a0a0a0;
 }
 
-.text {
+@mixin text {
   position: relative;
   padding: theme.$text-separation theme.$text-padding;
   background-color: #303030;
+}
+
+.text {
+  @include text;
+}
+.fullwidth {
+  @include text;
+  width: 100%;
 }
 .yt-vid {
   position: relative;
