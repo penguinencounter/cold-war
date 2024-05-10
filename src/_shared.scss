@@ -35,6 +35,10 @@ h6 {
 
 footer {
   height: 10vh;
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  color: #a0a0a0;
 }
 
 .text {
@@ -80,7 +84,7 @@ footer {
 // Image + text. Layout varies by @media.
 main>.image-text {
   display: grid;
-  max-width: max(calc(100vw - 60px), min(100vw, calc(theme.$readable-width + 250px)));
+  max-width: max(calc(100% - 60px), min(100%, calc(theme.$readable-width + 250px)));
   width: theme.$readable-width * 1.5;
   margin: 0 auto;
 

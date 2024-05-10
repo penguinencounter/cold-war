@@ -15,5 +15,9 @@
   <main>
     {% block body required %}{% endblock %}
   </main>
-  <footer></footer>
+  <footer>
+    {% if devenv %}
+    * = development build
+    {% endif %}
+  </footer>
 </body>

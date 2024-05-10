@@ -1,0 +1,12 @@
+{% extends "_content_page.html" %}
+{% from "_components.html" import sbs_img, single_img, open_image_btn, image_hero %}
+{% block body %}
+{% call image_hero(
+"https://upload.wikimedia.org/wikipedia/commons/5/55/CTBTO_-_Symposium_-_26.01.2016_%2824346530770%29.jpg",
+'<a href="https://commons.wikimedia.org/wiki/File:CTBTO_-_Symposium_-_26.01.2016_(24346530770).jpg">The Official CTBTO
+  Photostream</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons'
+) %}
+<h1>Nuclear Arms Race</h1>
+{% endcall %}
+
+{% endblock %}
