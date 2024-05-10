@@ -1,0 +1,55 @@
+{% extends "_content_page.html" %}
+{% from "_components.html" import sbs_img, single_img, open_image_btn, image_hero %}
+{% block body %}
+{% call image_hero(
+"https://upload.wikimedia.org/wikipedia/commons/7/7d/Apollo_11_Launch2.jpg",
+'<a href="https://commons.wikimedia.org/wiki/File:Apollo_11_Launch2.jpg">NASA; restored by Michel Vuijlsteke</a>, Public domain, via Wikimedia Commons'
+) %}
+<h1>Space Race</h1>
+{% endcall %}
+
+{{single_img(
+  'https://upload.wikimedia.org/wikipedia/commons/1/14/Space_Race_1957-1975.jpg',
+  '<a href="https://commons.wikimedia.org/wiki/File:Space_Race_1957-1975.jpg">Tdadamemd</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons'
+)}}
+
+<section class="image-text">
+  <div class="text">
+    <p> <!-- 6 -->
+      The United States and Soviet Union didn't just seek military superiority.
+      The two nations would try to be superior to the other in as many ways as possible.
+      A new area of exploration, space, was a critical part of the Cold War.
+      Demonstrating superiority through feats of aeronautics improves morale of soldiers and citizens.
+      Additionally, launching objects into space, including satellites, had a strategic advantage.
+      Satellites could spy on adversaries without recourse, and rockets could launch missiles at high speeds.
+    </p>
+  </div>
+  {{sbs_img(
+    'https://upload.wikimedia.org/wikipedia/commons/b/b0/Sputnik_1.jpg',
+    '<a href="https://commons.wikimedia.org/wiki/File:Sputnik_1.jpg">U.S. Air Force photo</a>, Public domain, via Wikimedia Commons'
+  )}}
+</section>
+<section class="image-text --flipped">
+  <div class="text">
+    <p> <!-- 2 -->
+      The start of space exploration from the two powers began in the years after World War II.
+      This occured when both nations realized that the rockets that they were developing for defense could be used in space exploration as well.
+    </p>
+    <p>
+      The major successes in the space race at first were completing a certain task first.
+      These included the first satellite, first human orbiting the Earth, first human spending a day in Space, and impacting the Moon with an object.
+      Nearly all of these "firsts" were accomplished by the Soviet Union.
+      The first satellite, Sputnik, was launched by the Soviets in October 1957.
+      The Soviets also got the first man and woman in space, as well as the first spacewalk.
+      In an attempt to beat the Soviets at <em>something</em> space-related, President Kennedy set his sights on landing a human on the moon.
+      Through programs such as the Mercury and Gemini missions, the United States built equipment suitable for space travel.
+      On July 21, 1969, Apollo 11 touched down on the Moon, and the astronauts stepped out.
+    </p>
+  </div>
+  {{sbs_img(
+    'https://upload.wikimedia.org/wikipedia/commons/4/42/Apollo_11_ticker_tape_parade_1.jpg',
+    '<a href="https://commons.wikimedia.org/wiki/File:Apollo_11_ticker_tape_parade_1.jpg">NASA / Bill Taub</a>, Public domain, via Wikimedia Commons'
+  )}}
+</section>
+
+{% endblock %}
