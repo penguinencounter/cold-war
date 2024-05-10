@@ -1,5 +1,5 @@
 {% extends "_content_page.html" %}
-{% from "_components.html" import sbs_img %}
+{% from "_components.html" import sbs_img, single_img %}
 {% block body %}
 <section class="hero" style="--img: linear-gradient(to right, #8080ff, #ff8080);">
   <h1>Cold War Timeline</h1>
@@ -7,7 +7,7 @@
 </section>
 <section class="image-text">
   <div class="text">
-    <h3>Feburary 1945 - The Yalta Conference</h3>
+    <h3>February 1945 - The Yalta Conference</h3>
     <p>
       The Yalta Conference was a conference taking place during February 1945.
       The conference was in a Russian resort town, and Franklin D. Roosevelt,
@@ -53,7 +53,7 @@
   {{ sbs_img("https://upload.wikimedia.org/wikipedia/commons/a/af/Potsdam_conference_1945-8.jpg", "Army Signal Corps
   Collection in the U.S. National Archives., Public domain, via Wikimedia Commons", "2/1") }}
 </section>
-<!-- <section class="image-text">
+<section class="image-text">
   <div class="text">
     <h3>February 1946 - Stalin's speech</h3>
     <p>
@@ -62,15 +62,16 @@
       system for World War II. He suggests that wars could be avoided if resources
       were distributed between countries in an even way, but that is impossible under
       capitalism.
-      
-      He goes on to suggest that capitalism caused World War I as well. He says that
+
+      He goes on to suggest that capitalism caused World War I as well. Furthermore, he says that
       World War II proved that the Soviet socialist system could work, and that the
       United States and Great Britain respected the new Red Army.
 
       He also encouraged voting for the Communist Party in the upcoming elections.
     </p>
   </div>
-  {{ sbs_img("https://upload.wikimedia.org/wikipedia/commons/f/f1/Stalin_speech_Feb_09_1946.jpg", "Pravda issue 66 (12634) dated Mar 07 1953, Public domain, via Wikimedia Commons", "2/1") }}
+  {{ sbs_img("https://upload.wikimedia.org/wikipedia/commons/f/f1/Stalin_speech_Feb_09_1946.jpg", "Pravda issue 66
+  (12634) dated Mar 07 1953, Public domain, via Wikimedia Commons", "2/1") }}
 </section>
 <section class="image-text">
   <div class="text">
@@ -79,8 +80,7 @@
       The "Long Telegram" was a telegram sent by George Kennan to the Secretary of State.
       The name comes from the fact that it was abnormally long &mdash; extending over 5,000 words.
       Sent from the Soviet Union, Kennan describes the harsh Soviet foreign policies.
-      Kennan also sent his recommendations for changes to U.S. policy. He sugessted
-      to educate (dubious) the public about the situation with Russia,
+      Kennan also sent his recommendations for changes to U.S. policy. He suggested educating (dubious) the public about the situation with Russia,
       and also to help guide other countries.
 
       He also notes that "World communism is like malignant parasite which feeds only on diseased tissue."
@@ -88,11 +88,11 @@
     </p>
   </div>
   {{ sbs_img(
-    "https://upload.wikimedia.org/wikipedia/commons/4/4b/George_F._Kennan_1947.jpg",
-    "Harris & Ewing, Public domain, via Wikimedia Commons",
-    "2/1",
-    "background-position: top;") }}
-</section> -->
+  "https://upload.wikimedia.org/wikipedia/commons/4/4b/George_F._Kennan_1947.jpg",
+  "Harris & Ewing, Public domain, via Wikimedia Commons",
+  "2/1",
+  "background-position: top;") }}
+</section>
 <section class="image-text">
   <div class="text">
     <h3>March 1946 - Iron Curtain Speech</h3>
@@ -100,7 +100,8 @@
       The "Iron Curtain" speech was delivered by Winston Churchill on
       March 5, 1946. The speech was delivered at Westminster College in Missouri
       with President Truman in attendance.
-      After the speech delivered by Stalin,
+      After the speech delivered by Stalin, as well as the "Long Telegram", Churchill prepared to face another war.
+      In the speech, he refers to an "iron curtain." This refers to the border between the NATO nations and Soviet nations.
     </p>
   </div>
   {{
@@ -113,6 +114,12 @@
     <h3>March 1947 - Truman Doctrine</h3>
     <p>
       On March 12, 1947, President Truman delivered the Truman Doctrine.
+      In a speech on the day, Truman declared that the United States would attempt to contain the communist ideas and prevent them from spreading.
+      The beliefs driving this declaration were that the Soviets were encouraging dictatorships, and preventing the world economy from functioning correctly.
+    </p>
+    <p>
+      As part of the containment plan, the United States would give aid to countries considered to be liable to be taken by communists.
+      This program, known as Marshall Aid, operated on the theory that communism would not exist if the people were happy in a prosperous nation.
     </p>
   </div>
   {{
@@ -124,8 +131,22 @@
   }}
 </section>
 <section class="text">
-  <div class="fixme">
-    Complete other sections after finishing proxy war pages
-  </div>
+  <h3>December 1991 - End of the Cold War</h3>
+  <p>
+    In December 1991, the Soviet Union dissolved, marking the end of the Cold War.
+    Over time, the Soviets started to have a problem: they were falling behind the rest of the world.
+    In order to fix this, Gorbachev instituted a 'reconstruction' of the Soviet systems.
+    He changed the political system to be more democratic and began elections again.
+    Second, he loosened the government's control over the economy.
+    And third, he abandoned the idea that all nations should follow communism or socialism.
+    This action is what brought an end to the Cold War.
+    Afterward, Poland, Czechoslovakia, Hungary, and other USSR nations declared independence, leading to the
+    destabilization and collapse of the Soviet Union.
+  </p>
 </section>
+{{single_img(
+'https://upload.wikimedia.org/wikipedia/commons/3/3f/USSR_Map_timeline.gif',
+'<a href="https://commons.wikimedia.org/wiki/File:USSR_Map_timeline.gif">FreshCorp619</a>, <a
+  href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons'
+)}}
 {% endblock %}
